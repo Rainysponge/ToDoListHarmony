@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DirectionalLayout
+    xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    ohos:height="match_parent"
+    ohos:width="match_parent"
+    ohos:background_element="$media:backG2"
+    ohos:orientation="vertical">
+
+<!--    <StackLayout
+        ohos:top_margin="60vp"
+        ohos:width="match_parent"
+        ohos:height="match_content"
+        ohos:layout_alignment="center">
+        <TextField
+            ohos:id="$+id:name_textField"
+            ohos:width="600vp"
+            ohos:height="match_content"
+            ohos:multiple_lines="false"
+            ohos:left_padding="24vp"
+            ohos:right_padding="24vp"
+            ohos:top_padding="8vp"
+            ohos:bottom_padding="8vp"
+            ohos:min_height="44vp"
+            ohos:text_size="18fp"
+            ohos:layout_alignment="center"
+            ohos:text_alignment="vertical_center"
+            ohos:background_element="$graphic:background_text_field"
+            ohos:hint="Enter phone number or email" />
+
+        <Text
+            ohos:visibility="hide"
+            ohos:id="$+id:error_tip_text"
+            ohos:width="match_content"
+            ohos:height="match_content"
+            ohos:top_padding="8vp"
+            ohos:bottom_padding="8vp"
+            ohos:right_margin="20vp"
+            ohos:text="Incorrect account or password"
+            ohos:text_size="18fp"
+            ohos:text_color="red"
+            ohos:layout_alignment="right"/>
+    </StackLayout>-->
+
+
+
+    <Text
+        ohos:height="match_content"
+        ohos:width="match_content"
+        ohos:text_size="35fp"
+        ohos:text="总算等到你了"
+        ohos:italic="true"
+        ohos:text_color="#A6FFFFFF"
+        ohos:text_alignment="center"
+        ohos:layout_alignment="horizontal_center"
+        ohos:top_margin="70vp"
+        ohos:text_font="monospace"
+        />
+    <Text
+        ohos:height="match_content"
+        ohos:width="match_content"
+        ohos:text_size="10fp"
+        ohos:text="不要撒谎哦~"
+        ohos:text_color="#FFFFFE"
+        ohos:layout_alignment="right"
+        ohos:right_margin="20vp"
+        ohos:text_font="HwChinese-medium"
+        />
+
+    <StackLayout
+        ohos:top_margin="20vp"
+        ohos:width="match_parent"
+        ohos:height="match_content"
+        ohos:layout_alignment="center">
+        <TextField
+            ohos:id="$+id:RegisterUserNameTextField"
+            ohos:height="50vp"
+            ohos:width="319vp"
+            ohos:hint="请输入用户名"
+            ohos:text_size="17fp"
+            ohos:text_color="#FFFFFF"
+            ohos:hint_color="#FFFFDF"
+            ohos:text_alignment="center"
+            ohos:layout_alignment="horizontal_center"
+            ohos:background_element="$graphic:register_textfield"
+
+            />
+        <Text
+            ohos:visibility="hide"
+            ohos:id="$+id:RegisterUserNameError"
+            ohos:width="match_content"
+            ohos:height="match_content"
+            ohos:top_padding="8vp"
+            ohos:bottom_padding="8vp"
+            ohos:right_padding="10vp"
+            ohos:right_margin="20vp"
+            ohos:text="X"
+            ohos:text_size="18fp"
+            ohos:text_color="red"
+            ohos:layout_alignment="right"/>
+    </StackLayout>
+
+
+
+    <StackLayout
+        ohos:top_margin="20vp"
+        ohos:width="match_parent"
+        ohos:height="match_content"
+        ohos:layout_alignment="center">
+        <TextField
+            ohos:id="$+id:RegisterPasswordTextField"
+            ohos:height="50vp"
+            ohos:width="319vp"
+            ohos:hint="请输入密码"
+            ohos:text_size="17fp"
+            ohos:text_color="#FFFFFF"
+            ohos:hint_color="#FFFFDF"
+            ohos:text_alignment="center"
+            ohos:layout_alignment="horizontal_center"
+            ohos:background_element="$graphic:register_textfield"
+            ohos:text_input_type="pattern_password"
+            />
+        <Text
+            ohos:visibility="hide"
+            ohos:id="$+id:RegisterPasswordError"
+            ohos:width="match_content"
+            ohos:height="match_content"
+            ohos:top_padding="8vp"
+            ohos:bottom_padding="8vp"
+            ohos:right_padding="10vp"
+            ohos:right_margin="20vp"
+            ohos:text="X"
+            ohos:text_size="18fp"
+            ohos:text_color="red"
+            ohos:layout_alignment="right"/>
+    </StackLayout>
+
+
+
+    <StackLayout
+        ohos:top_margin="20vp"
+        ohos:width="match_parent"
+        ohos:height="match_content"
+        ohos:layout_alignment="center">
+        <TextField
+            ohos:id="$+id:RegisterPasswordAgainTextField"
+            ohos:height="50vp"
+            ohos:width="319vp"
+            ohos:hint="请再次输入密码"
+            ohos:text_size="17fp"
+            ohos:text_color="#FFFFFF"
+            ohos:hint_color="#FFFFDF"
+            ohos:text_alignment="center"
+            ohos:layout_alignment="horizontal_center"
+            ohos:background_element="$graphic:register_textfield"
+            ohos:text_input_type="pattern_password"
+            />
+        <Text
+            ohos:visibility="hide"
+            ohos:id="$+id:RegisterPasswordAgainError"
+            ohos:width="match_content"
+            ohos:height="match_content"
+            ohos:top_padding="8vp"
+            ohos:bottom_padding="8vp"
+            ohos:right_padding="10vp"
+            ohos:right_margin="20vp"
+            ohos:text="X"
+            ohos:text_size="18fp"
+            ohos:text_color="red"
+            ohos:layout_alignment="right"/>
+    </StackLayout>
+
+
+    <StackLayout
+        ohos:top_margin="20vp"
+        ohos:width="match_parent"
+        ohos:height="match_content"
+        ohos:layout_alignment="center">
+        <TextField
+            ohos:id="$+id:RegisterUserPhoneTextField"
+            ohos:height="50vp"
+            ohos:width="319vp"
+            ohos:hint="请输入电话号码"
+            ohos:text_size="17fp"
+            ohos:text_color="#FFFFFF"
+            ohos:hint_color="#FFFFDF"
+            ohos:text_alignment="center"
+            ohos:layout_alignment="horizontal_center"
+            ohos:background_element="$graphic:register_textfield"
+
+            />
+        <Text
+            ohos:visibility="hide"
+            ohos:id="$+id:RegisterUserPhoneError"
+            ohos:width="match_content"
+            ohos:height="match_content"
+            ohos:top_padding="8vp"
+            ohos:bottom_padding="8vp"
+            ohos:right_padding="10vp"
+            ohos:right_margin="20vp"
+            ohos:text="X"
+            ohos:text_size="18fp"
+            ohos:text_color="red"
+            ohos:layout_alignment="right"/>
+    </StackLayout>
+
+
+    <Button
+        ohos:id="$+id:RegisterSubmitButton"
+        ohos:height="50vp"
+        ohos:width="319vp"
+        ohos:text_size="24fp"
+        ohos:text="提交信息"
+        ohos:text_color="#FEFEFE"
+        ohos:text_alignment="center"
+        ohos:background_element="$graphic:capsule_button_element"
+        ohos:top_margin="100vp"
+        ohos:layout_alignment="horizontal_center"
+
+        />
+
+</DirectionalLayout>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DirectionalLayout
+    xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    ohos:height="match_parent"
+    ohos:width="match_parent"
+    ohos:background_element="$media:backG"
+
+    ohos:orientation="vertical">
+
+    <Text
+    ohos:height="match_content"
+    ohos:width="match_content"
+    ohos:text_size="40fp"
+    ohos:text="Welcome"
+    ohos:text_color="#FFFFFF"
+    ohos:text_alignment="center"
+    ohos:layout_alignment="horizontal_center"
+    ohos:top_margin="170vp"
+    ohos:text_font="serif"
+    ohos:italic="true"
+    />
+    <Text
+        ohos:height="match_content"
+        ohos:width="match_content"
+        ohos:text_size="10fp"
+        ohos:text="一个简单的记事本"
+        ohos:text_color="#FFFFFE"
+        ohos:layout_alignment="right"
+        ohos:right_margin="20vp"
+        ohos:text_font="HwChinese-medium"
+        />
+
+    <TextField
+    ohos:id="$+id:LoginUserNameTextField"
+    ohos:height="50vp"
+    ohos:width="319vp"
+    ohos:hint="请输入用户名"
+    ohos:text_size="17fp"
+    ohos:text_color="#FFFFFF"
+    ohos:hint_color="#FFFFDF"
+    ohos:text_alignment="center"
+    ohos:top_margin="10vp"
+    ohos:layout_alignment="horizontal_center"
+    ohos:basement="#FFFFFE"
+
+    />
+    <TextField
+        ohos:id="$+id:LoginPasswordTextField"
+        ohos:height="50vp"
+        ohos:width="319vp"
+        ohos:hint="请输入密码"
+        ohos:text_size="17fp"
+        ohos:text_color="#FFFFFF"
+        ohos:hint_color="#FFFFDF"
+        ohos:text_alignment="center"
+        ohos:top_margin="10vp"
+        ohos:layout_alignment="horizontal_center"
+        ohos:basement="#FFFFFE"
+        ohos:text_input_type="pattern_password"
+        />
+
+    <Button
+        ohos:id="$+id:ForgetPasswordButton"
+        ohos:height="match_content"
+        ohos:width="match_content"
+        ohos:text_size="12fp"
+        ohos:text="忘记密码"
+        ohos:text_color="#FFFFFE"
+        ohos:layout_alignment="left"
+        ohos:top_margin="8vp"
+        ohos:left_margin="20vp"
+        ohos:text_font="HwChinese-medium"
+        />
+
+    <Button
+        ohos:id="$+id:LoginButton"
+        ohos:height="50vp"
+        ohos:width="319vp"
+        ohos:text_size="24fp"
+        ohos:text="登录"
+        ohos:text_color="#FEFEFE"
+        ohos:text_alignment="center"
+        ohos:background_element="$graphic:capsule_button_element"
+        ohos:top_margin="20vp"
+        ohos:layout_alignment="horizontal_center"
+        ohos:focus_border_radius="7vp"
+        />
+    <Button
+        ohos:id="$+id:RegisterButton"
+        ohos:height="50vp"
+        ohos:width="319vp"
+        ohos:text_size="24fp"
+        ohos:text="注册"
+        ohos:text_color="#FEFEFE"
+        ohos:text_alignment="center"
+        ohos:background_element="$graphic:capsule_button_element"
+        ohos:top_margin="20vp"
+        ohos:layout_alignment="horizontal_center"
+
+        />
+    <Button
+        ohos:id="$+id:TestButton"
+        ohos:height="50vp"
+        ohos:width="319vp"
+        ohos:text_size="24fp"
+        ohos:text="跳过登录"
+        ohos:text_color="#FEFEFE"
+        ohos:text_alignment="center"
+        ohos:background_element="$graphic:capsule_button_element"
+        ohos:top_margin="20vp"
+        ohos:layout_alignment="horizontal_center"
+
+        />
+
+
+
+</DirectionalLayout>

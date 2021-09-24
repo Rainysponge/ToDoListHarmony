@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DirectionalLayout
+    xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    ohos:height="match_content"
+    ohos:width="match_parent"
+    ohos:orientation="horizontal">
+
+
+    <StackLayout
+        ohos:id="$+id:ToDoThingItemBackground"
+        ohos:height="match_content"
+        ohos:width="match_parent"
+        ohos:background_element="$graphic:to_do_item_round">
+
+        <Button
+            ohos:id="$+id:ToDoThingDetailButton"
+            ohos:height="80vp"
+            ohos:width="250vp"
+
+            />
+
+        <DirectionalLayout
+            ohos:id="$+id:ToDoThingListInnerDirectionalLayout"
+            ohos:height="80vp"
+            ohos:width="250vp"
+            ohos:right_margin="60vp"
+            ohos:orientation="vertical"
+            >
+            <Text
+                ohos:id="$+id:ToDoListItemTittle"
+                ohos:height="55vp"
+                ohos:text_size="25fp"
+                ohos:width="match_content"
+                ohos:layout_alignment="top"
+                />
+            <Text
+                ohos:id="$+id:ToDoListItemEndTime"
+                ohos:height="25vp"
+                ohos:text_size="15fp"
+                ohos:width="match_content"
+                />
+
+
+
+        </DirectionalLayout>
+
+
+
+        <Switch
+            ohos:id="$+id:ToDoListItemIsCompleteSwitch"
+            ohos:height="match_content"
+            ohos:width="match_content"
+            ohos:top_margin="20vp"
+            ohos:right_margin="10vp"
+
+            ohos:layout_alignment="right"
+
+            ohos:thumb_element="$graphic:thumb_state_element_bounds"
+            ohos:track_element="$graphic:track_state_element"
+
+            />
+
+        <Text
+            ohos:id="$+id:ToDoThingWarning"
+            ohos:height="match_parent"
+            ohos:width="match_parent"
+            ohos:alpha="0.3"
+            ohos:visibility="hide"
+            ohos:background_element="$graphic:to_do_thing_warning_background"
+            />
+
+
+
+
+    </StackLayout>
+
+
+
+
+
+
+</DirectionalLayout>
+
+    <!--        <TableLayout-->
+    <!--            ohos:height="60"-->
+    <!--            ohos:width="match_parent"-->
+    <!--            ohos:column_count="2"-->
+    <!--            ohos:row_count="1"-->
+    <!--            >-->
+    <!--            <TableLayout-->
+    <!--                ohos:height="60vp"-->
+    <!--                ohos:width="match_content"-->
+    <!--                ohos:column_count="1"-->
+    <!--                ohos:row_count="2"-->
+    <!--                >-->
+    <!--                <Text-->
+    <!--                    ohos:height="30vp"-->
+    <!--                    ohos:width="match_parent"-->
+    <!--                    ohos:text="Tittle"-->
+    <!--                    />-->
+
+    <!--                <Text-->
+    <!--                    ohos:height="30vp"-->
+    <!--                    ohos:width="match_parent"-->
+    <!--                    ohos:text="time"-->
+    <!--                    />-->
+    <!--            </TableLayout>-->
+    <!--            <Switch-->
+    <!--                ohos:height="match_parent"-->
+    <!--                ohos:width="match_content"-->
+
+    <!--                />-->
+
+
+    <!--        </TableLayout>-->

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DirectionalLayout
+    xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    ohos:height="match_parent"
+    ohos:width="match_parent"
+    ohos:background_element="$media:backG3"
+    >
+
+    <DatePicker
+        ohos:id="$+id:DetailToDoThingDatePicker"
+        ohos:height="100vp"
+        ohos:width="match_parent"
+        ohos:date_order="year-month-day"
+        ohos:top_margin="5vp"
+
+        ohos:selected_text_color="#007DFF"
+        ohos:selected_text_size="20fp"
+        ohos:selector_item_num="3"
+
+        />
+    <!--    74,228,108-->
+
+    <TimePicker
+        ohos:id="$+id:DetailToDoThingTimePicker"
+        ohos:height="170vp"
+        ohos:width="match_parent"
+        ohos:wheel_mode_enabled="true"
+        ohos:top_margin="5vp"
+        ohos:selected_text_color="#007DFF"
+        ohos:selected_text_size="20fp"
+        />
+
+    <TextField
+        ohos:id="$+id:DetailToDoThingTittleTextField"
+        ohos:height="50vp"
+        ohos:width="319vp"
+        ohos:hint="请输入标题"
+        ohos:text_size="17fp"
+        ohos:text_color="#FFFFFF"
+        ohos:hint_color="#FFFFDF"
+        ohos:text_alignment="center"
+        ohos:layout_alignment="horizontal_center"
+        ohos:background_element="$graphic:register_textfield"
+
+        />
+
+    <TextField
+        ohos:id="$+id:DetailToDoThingContentTextField"
+        ohos:height="200vp"
+        ohos:width="319vp"
+        ohos:top_margin="5vp"
+        ohos:left_padding="40vp"
+        ohos:right_padding="40vp"
+        ohos:hint="请输入详细内容"
+
+        ohos:text_size="17fp"
+        ohos:text_color="#FFFFFF"
+        ohos:hint_color="#FFFFDF"
+        ohos:layout_alignment="horizontal_center"
+        ohos:background_element="$graphic:register_textfield"
+        />
+
+
+
+    <DirectionalLayout
+        ohos:height="match_parent"
+        ohos:width="match_parent"
+        ohos:orientation="horizontal"
+        >
+
+        <Button
+            ohos:id="$+id:DetailToDoThingDeleteButton"
+            ohos:height="50vp"
+            ohos:width="140vp"
+            ohos:top_margin="30vp"
+            ohos:left_margin="30vp"
+            ohos:text_size="24fp"
+            ohos:text="删除"
+            ohos:text_color="#FEFEFE"
+            ohos:text_alignment="center"
+            ohos:background_element="$graphic:capsule_button_element_quit"
+
+            />
+
+        <Button
+            ohos:id="$+id:DetailToDoThingSaveButton"
+            ohos:height="50vp"
+            ohos:width="140vp"
+
+            ohos:top_margin="30vp"
+            ohos:left_margin="20vp"
+            ohos:text_size="24fp"
+            ohos:text="保存修改"
+            ohos:text_color="#FEFEFE"
+
+            ohos:background_element="$graphic:capsule_button_element"
+
+            />
+
+
+
+
+    </DirectionalLayout>
+
+
+
+<!--    <TableLayout-->
+<!--        ohos:height="match_parent"-->
+<!--        ohos:width="match_parent"-->
+<!--        ohos:column_count="2"-->
+<!--        ohos:row_count="1"-->
+<!--        ohos:layout_alignment="horizontal_center"-->
+<!--        ohos:padding="10vp"-->
+<!--        ohos:background_element="#000000"-->
+<!--        >-->
+
+<!--        <Button-->
+<!--            ohos:id="$+id:DetailToDoThingDeleteButton"-->
+<!--            ohos:height="50vp"-->
+<!--            ohos:width="140vp"-->
+
+<!--            ohos:text_size="24fp"-->
+<!--            ohos:text="删除"-->
+<!--            ohos:text_color="#FEFEFE"-->
+<!--            ohos:text_alignment="center"-->
+<!--            ohos:background_element="$graphic:capsule_button_element_quit"-->
+
+<!--            />-->
+
+<!--        <Button-->
+<!--            ohos:id="$+id:DetailToDoThingSaveButton"-->
+<!--            ohos:height="50vp"-->
+<!--            ohos:width="140vp"-->
+
+
+<!--            ohos:text_size="24fp"-->
+<!--            ohos:text="保存修改"-->
+<!--            ohos:text_color="#FEFEFE"-->
+
+<!--            ohos:background_element="$graphic:capsule_button_element"-->
+
+<!--            />-->
+
+
+<!--    </TableLayout>-->
+
+
+
+</DirectionalLayout>

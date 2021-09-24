@@ -1,0 +1,60 @@
+{
+  "string": [
+    {
+      "name": "entry_MainAbility",
+      "value": "entry_MainAbility"
+    },
+    {
+      "name": "mainability_description",
+      "value": "Java_Empty Ability"
+    },
+    {
+      "name": "mainability_HelloWorld",
+      "value": "你好，世界"
+    },
+    {
+      "name": "usersdataability_description",
+      "value": "hap sample empty provider"
+    },
+    {
+      "name": "entry_ToDoMainAbility",
+      "value": "entry_ToDoMainAbility"
+    },
+    {
+      "name": "todomainability_description",
+      "value": "Java_Empty Ability"
+    },
+    {
+      "name": "todomainability_HelloWorld",
+      "value": "你好，世界"
+    },
+    {
+      "name": "tododataability_description",
+      "value": "hap sample empty provider"
+    },
+    {
+      "name": "entry_ToToThingAddAbility",
+      "value": "entry_ToToThingAddAbility"
+    },
+    {
+      "name": "totothingaddability_description",
+      "value": "Java_Empty Ability"
+    },
+    {
+      "name": "totothingaddability_HelloWorld",
+      "value": "你好，世界"
+    },
+    {
+      "name": "entry_ToDoThingDetailAbility",
+      "value": "entry_ToDoThingDetailAbility"
+    },
+    {
+      "name": "todothingdetailability_description",
+      "value": "Java_Empty Ability"
+    },
+    {
+      "name": "todothingdetailability_HelloWorld",
+      "value": "你好，世界"
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "app": {
+    "bundleName": "com.example.todolistapplication",
+    "vendor": "example",
+    "version": {
+      "code": 1000000,
+      "name": "1.0.0"
+    }
+  },
+  "deviceConfig": {},
+  "module": {
+    "package": "com.example.todolistapplication",
+    "name": ".MyApplication",
+    "mainAbility": "com.example.todolistapplication.MainAbility",
+    "deviceType": [
+      "phone"
+    ],
+    "distro": {
+      "deliveryWithInstall": true,
+      "moduleName": "entry",
+      "moduleType": "entry",
+      "installationFree": true
+    },
+    "abilities": [
+      {
+        "skills": [
+          {
+            "entities": [
+              "entity.system.home"
+            ],
+            "actions": [
+              "action.system.home"
+            ]
+          }
+        ],
+        "orientation": "unspecified",
+        "name": "com.example.todolistapplication.MainAbility",
+        "icon": "$media:icon",
+        "description": "$string:mainability_description",
+        "label": "$string:entry_MainAbility",
+        "type": "page",
+        "launchType": "standard"
+      },
+      {
+        "permissions": [
+          "com.example.todolistapplication.DataAbilityShellProvider.PROVIDER"
+        ],
+        "name": "com.example.todolistapplication.UsersDataAbility",
+        "icon": "$media:icon",
+        "description": "$string:usersdataability_description",
+        "type": "data",
+        "uri": "dataability://com.example.todolistapplication.UsersDataAbility"
+      },
+      {
+        "orientation": "unspecified",
+        "name": "com.example.todolistapplication.ToDoMainAbility",
+        "icon": "$media:icon",
+        "description": "$string:todomainability_description",
+        "label": "$string:entry_ToDoMainAbility",
+        "type": "page",
+        "launchType": "standard"
+      },
+      {
+        "permissions": [
+          "com.example.todolistapplication.DataAbilityShellProvider.PROVIDER"
+        ],
+        "name": "com.example.todolistapplication.ToDoDataAbility",
+        "icon": "$media:icon",
+        "description": "$string:tododataability_description",
+        "type": "data",
+        "uri": "dataability://com.example.todolistapplication.ToDoDataAbility"
+      },
+      {
+        "orientation": "unspecified",
+        "name": "com.example.todolistapplication.ToToThingAddAbility",
+        "icon": "$media:icon",
+        "description": "$string:totothingaddability_description",
+        "label": "$string:entry_ToToThingAddAbility",
+        "type": "page",
+        "launchType": "standard"
+      },
+      {
+        "orientation": "unspecified",
+        "name": "com.example.todolistapplication.ToDoThingDetailAbility",
+        "icon": "$media:icon",
+        "description": "$string:todothingdetailability_description",
+        "label": "$string:entry_ToDoThingDetailAbility",
+        "type": "page",
+        "launchType": "standard"
+      }
+    ]
+  }
+}

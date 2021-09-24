@@ -1,0 +1,60 @@
+{
+  "string": [
+    {
+      "name": "entry_MainAbility",
+      "value": "entry_MainAbility"
+    },
+    {
+      "name": "mainability_description",
+      "value": "Java_Empty Ability"
+    },
+    {
+      "name": "mainability_HelloWorld",
+      "value": "Hello World"
+    },
+    {
+      "name": "usersdataability_description",
+      "value": "hap sample empty provider"
+    },
+    {
+      "name": "todomainability_description",
+      "value": "Java_Empty Ability"
+    },
+    {
+      "name": "todomainability_HelloWorld",
+      "value": "Hello World"
+    },
+    {
+      "name": "entry_ToDoMainAbility",
+      "value": "entry_ToDoMainAbility"
+    },
+    {
+      "name": "tododataability_description",
+      "value": "hap sample empty provider"
+    },
+    {
+      "name": "totothingaddability_description",
+      "value": "Java_Empty Ability"
+    },
+    {
+      "name": "totothingaddability_HelloWorld",
+      "value": "Hello World"
+    },
+    {
+      "name": "entry_ToToThingAddAbility",
+      "value": "entry_ToToThingAddAbility"
+    },
+    {
+      "name": "todothingdetailability_description",
+      "value": "Java_Empty Ability"
+    },
+    {
+      "name": "todothingdetailability_HelloWorld",
+      "value": "Hello World"
+    },
+    {
+      "name": "entry_ToDoThingDetailAbility",
+      "value": "entry_ToDoThingDetailAbility"
+    }
+  ]
+}
