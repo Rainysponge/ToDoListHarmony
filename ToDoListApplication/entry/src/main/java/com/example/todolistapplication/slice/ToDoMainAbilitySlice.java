@@ -254,7 +254,7 @@ public class ToDoMainAbilitySlice extends AbilitySlice implements TabList.TabSel
                 "startTime", "endTime", "isActive", "isComplete"};
 
         DataAbilityPredicates dataAbilityPredicates = new DataAbilityPredicates()
-                .equalTo("userId", curUser.userId).orderByAsc("endTime");
+                .equalTo("userId", curUser.userId).orderByAsc("endTime").orderByAsc("isComplete");
         try{
             ResultSet resultSet = dataAbilityHelper.query(uri, columns, dataAbilityPredicates);
             if(resultSet.getRowCount() > 0){
