@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DirectionalLayout
+    xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    ohos:height="match_parent"
+    ohos:width="match_parent"
+    ohos:background_element="$media:clockGameBackG2"
+    >
+
+
+
+<!--        <ProgressBar
+    ohos:id="$+id:progressbar"
+    ohos:progress_width="10vp"
+    ohos:height="60vp"
+    ohos:width="600vp"
+    ohos:max="100"
+    ohos:min="0"
+    ohos:progress="60"/>-->
+
+        <ProgressBar
+            ohos:id="$+id:ClockGameChallengeProgressBar"
+            ohos:top_margin="100vp"
+            ohos:height="200vp"
+            ohos:width="200vp"
+            ohos:progress_width="10vp"
+
+            ohos:alpha="0.7"
+            ohos:progress="0"
+            ohos:progress_color="#47CC47"
+            ohos:layout_alignment="center"/>
+
+
+
+
+
+    <TickTimer
+        ohos:visibility="hide"
+        ohos:id="$+id:ClockGameChallengeTickTimer"
+        ohos:height="0vp"
+        ohos:width="0vp"
+        ohos:text_size="35vp"
+        ohos:text_alignment="center"
+        ohos:layout_alignment="horizontal_center"
+        />
+
+
+    <Button
+        ohos:id="$+id:ClockGameChallengeStartButton"
+        ohos:top_margin="40vp"
+        ohos:height="60vp"
+        ohos:width="170vp"
+        ohos:background_element="$media:clockGameButton"
+        ohos:text_alignment="center"
+        ohos:text_color="#ffffff"
+        ohos:text="开始游戏"
+        ohos:layout_alignment="horizontal_center"
+        ohos:text_size="25fp"
+        />
+
+
+
+
+    <Button
+        ohos:id="$+id:ClockGameChallengeQuitButton"
+        ohos:top_margin="20vp"
+        ohos:height="60vp"
+        ohos:width="170vp"
+        ohos:background_element="$media:clockGameButton"
+        ohos:text_alignment="center"
+        ohos:text_color="#ffffff"
+        ohos:text="退出"
+        ohos:layout_alignment="horizontal_center"
+        ohos:text_size="25fp"
+        />
+
+</DirectionalLayout>

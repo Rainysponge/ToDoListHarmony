@@ -8,6 +8,7 @@ import ohos.aafwk.ability.AbilitySlice;
 import ohos.aafwk.ability.DataAbilityHelper;
 import ohos.aafwk.ability.DataAbilityRemoteException;
 import ohos.aafwk.content.Intent;
+import ohos.aafwk.content.Operation;
 import ohos.agp.components.*;
 import ohos.agp.window.dialog.CommonDialog;
 import ohos.data.dataability.DataAbilityPredicates;
@@ -132,8 +133,14 @@ public class ToDoThingDetailAbilitySlice extends AbilitySlice implements Compone
                         cd.destroy();
                         Intent i = new Intent();
                         i.setParam("curIndex", 1);
+                        Operation operation =  new Intent.OperationBuilder()
+                                .withDeviceId("")
+                                .withBundleName("com.example.todolistapplication")
+                                .withAbilityName("com.example.todolistapplication.ToDoMainAbility").build();
 
-                        present(new ToDoMainAbilitySlice(), i);
+                        i.setOperation(operation);
+
+                        startAbility(i);
                     } catch (DataAbilityRemoteException e) {
                         e.printStackTrace();
                     }

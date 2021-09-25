@@ -67,6 +67,18 @@
     {
       "name": "clockgameability_HelloWorld",
       "value": "你好，世界"
+    },
+    {
+      "name": "entry_GuessGameAbility",
+      "value": "entry_GuessGameAbility"
+    },
+    {
+      "name": "guessgameability_description",
+      "value": "Java_Empty Ability"
+    },
+    {
+      "name": "guessgameability_HelloWorld",
+      "value": "你好，世界"
     }
   ]
 }

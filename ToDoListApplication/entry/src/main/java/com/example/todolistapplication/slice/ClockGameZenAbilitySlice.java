@@ -13,7 +13,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class ClockGameZenAbilitySlice extends AbilitySlice implements Component.ClickedListener, TickTimer.TickListener {
+public class ClockGameZenAbilitySlice extends AbilitySlice implements Component.ClickedListener
+        , TickTimer.TickListener {
     RoundProgressBar clockGameZenRoundProgressBar;
     TickTimer clockGameZenTickTimer;
     Button clockGameZenStartButton;
@@ -80,9 +81,7 @@ public class ClockGameZenAbilitySlice extends AbilitySlice implements Component.
 
     @Override
     public void onTickTimerUpdate(TickTimer tickTimer) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd-hh-mm:ss");
-        long now = 0;
-        now = new Date().getTime();
+        long now = new Date().getTime();
 
         long remainTime = now - startTime;
         if(remainTime >= timeLimit - 1500){

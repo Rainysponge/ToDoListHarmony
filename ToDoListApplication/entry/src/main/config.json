@@ -96,6 +96,15 @@
         "label": "$string:entry_ClockGameAbility",
         "type": "page",
         "launchType": "standard"
+      },
+      {
+        "orientation": "unspecified",
+        "name": "com.example.todolistapplication.GuessGameAbility",
+        "icon": "$media:icon",
+        "description": "$string:guessgameability_description",
+        "label": "$string:entry_GuessGameAbility",
+        "type": "page",
+        "launchType": "standard"
       }
     ]
   }
