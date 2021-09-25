@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DirectionalLayout
+    xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    ohos:height="match_parent"
+    ohos:width="match_parent"
+    ohos:orientation="vertical"
+    ohos:background_element="$media:clockGameBackG">
+
+    <Text
+        ohos:height="match_content"
+        ohos:width="match_parent"
+        ohos:margin="25vp"
+        ohos:text_alignment="horizontal_center"
+        ohos:text="生 死 时 速"
+        ohos:text_color="#ffffff"
+        ohos:italic="true"
+        ohos:text_size="60fp"
+
+        />
+
+
+    <Button
+        ohos:id="$+id:ClockGameChallengeModeButton"
+        ohos:height="60vp"
+        ohos:width="170vp"
+        ohos:top_margin="250vp"
+        ohos:left_margin="30vp"
+        ohos:background_element="$media:clockGameButton"
+        ohos:text_color="#ffffff"
+        ohos:text_alignment="center"
+        ohos:text="挑战模式"
+        ohos:text_size="22fp"
+        />
+    <Button
+        ohos:id="$+id:ClockGameZenModeButton"
+        ohos:height="60vp"
+        ohos:width="170vp"
+        ohos:top_margin="30vp"
+        ohos:right_margin="40vp"
+        ohos:layout_alignment="right"
+        ohos:background_element="$media:clockGameButton"
+        ohos:text_color="#ffffff"
+        ohos:text_alignment="center"
+        ohos:text="禅模式"
+        ohos:text_size="22fp"
+        />
+    <Button
+        ohos:id="$+id:ClockGameQuit"
+        ohos:height="60vp"
+        ohos:width="170vp"
+        ohos:top_margin="30vp"
+        ohos:left_margin="60vp"
+        ohos:background_element="$media:clockGameButton"
+        ohos:text_color="#ffffff"
+        ohos:text_alignment="center"
+        ohos:text="退出"
+        ohos:text_size="22fp"
+        />
+
+
+</DirectionalLayout>

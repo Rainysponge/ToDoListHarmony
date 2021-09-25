@@ -63,4 +63,8 @@ public class TimeUtil {
 
     }
 
+    public static long getTimeFromString(SimpleDateFormat dateFormat, String time) throws ParseException {
+        Date date = dateFormat.parse(time);
+        return date.getTime();
+    }
 }

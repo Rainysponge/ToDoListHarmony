@@ -55,6 +55,18 @@
     {
       "name": "todothingdetailability_HelloWorld",
       "value": "Hello World"
+    },
+    {
+      "name": "entry_ClockGameAbility",
+      "value": "entry_ClockGameAbility"
+    },
+    {
+      "name": "clockgameability_description",
+      "value": "Java_Empty Ability"
+    },
+    {
+      "name": "clockgameability_HelloWorld",
+      "value": "Hello World"
     }
   ]
 }

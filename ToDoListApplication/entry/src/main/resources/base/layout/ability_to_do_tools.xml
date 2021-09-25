@@ -11,61 +11,86 @@
         ohos:width="match_parent"
         ohos:row_count="2"
         ohos:column_count="2"
-        ohos:padding="25vp"
+        ohos:padding="20vp"
         ohos:orientation="horizontal"
         >
-
-        <StackLayout
-            ohos:height="140vp"
-            ohos:width="140vp"
-            ohos:margin="5vp"
+        <DirectionalLayout
+            ohos:height="match_parent"
+            ohos:width="170vp"
             >
-                <Text
-                    ohos:height="match_content"
-                    ohos:width="match_content"
-                    ohos:text_alignment="center"
+            <StackLayout
+                ohos:height="140vp"
+                ohos:width="140vp"
+                ohos:margin="5vp"
+                >
 
-                    ohos:text_size="25fp"
-                    ohos:margin="10vp"
-                    ohos:background_element="#ffffff"
+
+                <Image
+                    ohos:height="match_parent"
+                    ohos:width="match_parent"
+                    ohos:image_src="$media:Clock"
+                    ohos:scale_mode="stretch"
                     />
 
-            <Image
-                ohos:height="match_parent"
-                ohos:width="match_parent"
-                ohos:image_src="$media:addWithOutBackG"
-                ohos:scale_mode="stretch"
-                />
-
-
-        </StackLayout>
-
-
-
-        <StackLayout
-            ohos:height="140vp"
-            ohos:width="140vp"
-            ohos:margin="5vp"
-            >
+                <Button
+                    ohos:id="$+id:ClockGameButton"
+                    ohos:height="match_parent"
+                    ohos:width="match_parent"/>
+            </StackLayout>
             <Text
                 ohos:height="match_content"
                 ohos:width="match_content"
                 ohos:text_alignment="center"
-
+                ohos:layout_alignment="horizontal_center"
+                ohos:text="生死时速"
                 ohos:text_size="25fp"
                 ohos:margin="10vp"
-                ohos:background_element="#ffffff"
-                />
 
-            <Image
-                ohos:height="match_parent"
-                ohos:width="match_parent"
-                ohos:image_src="$media:addWithOutBackG"
-                ohos:scale_mode="stretch"
                 />
 
 
-        </StackLayout>
+        </DirectionalLayout>
+
+
+        <DirectionalLayout
+            ohos:height="match_parent"
+            ohos:width="170vp">
+
+            <StackLayout
+                ohos:height="140vp"
+                ohos:width="140vp"
+                ohos:margin="5vp"
+                >
+
+
+                <Image
+                    ohos:height="match_parent"
+                    ohos:width="match_parent"
+                    ohos:image_src="$media:game2"
+                    ohos:scale_mode="stretch"
+                    />
+                <Button
+                    ohos:id="$+id:GuessGameButton"
+                    ohos:height="match_parent"
+                    ohos:width="match_parent"/>
+
+
+            </StackLayout>
+            <Text
+                ohos:height="match_content"
+                ohos:width="match_content"
+                ohos:text_alignment="center"
+                ohos:layout_alignment="horizontal_center"
+                ohos:text="猜大小"
+                ohos:text_size="25fp"
+                ohos:margin="10vp"
+
+                />
+
+
+        </DirectionalLayout>
+
+
         <Text
             ohos:height="match_content"
             ohos:width="match_content"

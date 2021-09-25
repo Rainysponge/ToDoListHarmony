@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DirectionalLayout
+    xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    ohos:height="match_parent"
+    ohos:width="match_parent"
+    ohos:background_element="$media:clockGameBackG2"
+    >
+
+<!--    15s-->
+    <StackLayout
+        ohos:height="200vp"
+        ohos:width="200vp"
+        ohos:margin="40vp"
+        ohos:layout_alignment="horizontal_center"
+        >
+
+        <RoundProgressBar
+            ohos:id="$+id:ClockGameZenRoundProgressBar"
+            ohos:height="200vp"
+            ohos:width="200vp"
+            ohos:progress_width="10vp"
+
+            ohos:alpha="0.7"
+            ohos:progress="0"
+            ohos:progress_color="#47CC47"
+            ohos:layout_alignment="center"/>
+
+        <Text
+            ohos:id="$+id:ClockGameZenReMainTimeText"
+            ohos:height="100vp"
+            ohos:width="100vp"
+            ohos:layout_alignment="center"
+            ohos:text_size="35vp"
+            ohos:text="15s"
+            />
+
+    </StackLayout>
+
+
+
+    <TickTimer
+        ohos:visibility="hide"
+        ohos:id="$+id:ClockGameZenTickTimer"
+        ohos:height="0vp"
+        ohos:width="0vp"
+        ohos:text_size="35vp"
+        ohos:text_alignment="center"
+        ohos:layout_alignment="horizontal_center"
+        />
+
+
+    <Button
+        ohos:id="$+id:ClockGameZenStartButton"
+        ohos:top_margin="40vp"
+        ohos:height="60vp"
+        ohos:width="170vp"
+        ohos:background_element="$media:clockGameButton"
+        ohos:text_alignment="center"
+        ohos:text_color="#ffffff"
+        ohos:text="开始游戏"
+        ohos:layout_alignment="horizontal_center"
+        ohos:text_size="25fp"
+        />
+
+
+
+
+    <Button
+        ohos:id="$+id:ClockGameZenQuitButton"
+        ohos:top_margin="20vp"
+        ohos:height="60vp"
+        ohos:width="170vp"
+        ohos:background_element="$media:clockGameButton"
+        ohos:text_alignment="center"
+        ohos:text_color="#ffffff"
+        ohos:text="退出"
+        ohos:layout_alignment="horizontal_center"
+        ohos:text_size="25fp"
+        />
+
+</DirectionalLayout>

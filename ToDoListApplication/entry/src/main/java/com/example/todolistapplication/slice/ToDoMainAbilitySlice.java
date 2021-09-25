@@ -159,6 +159,27 @@ public class ToDoMainAbilitySlice extends AbilitySlice implements TabList.TabSel
 
         }else if(index == 2){
             // games and tools
+
+            Button ClockGameButton = (Button)findComponentById(ResourceTable.Id_ClockGameButton);
+            Button GuessGameButton = (Button)findComponentById(ResourceTable.Id_GuessGameButton);
+
+            ClockGameButton.setClickedListener(new Component.ClickedListener() {
+                @Override
+                public void onClick(Component component) {
+                    Intent i = new Intent();
+
+                    Operation operation =  new Intent.OperationBuilder()
+                            .withDeviceId("")
+                            .withBundleName("com.example.todolistapplication")
+                            .withAbilityName("com.example.todolistapplication.ClockGameAbility").build();
+
+                    i.setOperation(operation);
+
+                    startAbility(i);
+                }
+            });
+
+
         }else{
             // user center
 

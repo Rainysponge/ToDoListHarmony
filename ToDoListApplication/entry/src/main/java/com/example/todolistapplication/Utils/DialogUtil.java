@@ -23,7 +23,7 @@ public class DialogUtil {
         submit.setClickedListener(new Component.ClickedListener() {
             @Override
             public void onClick(Component component) {
-
+                cd.destroy();
             }
         });
 

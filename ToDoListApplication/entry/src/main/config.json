@@ -87,6 +87,15 @@
         "label": "$string:entry_ToDoThingDetailAbility",
         "type": "page",
         "launchType": "standard"
+      },
+      {
+        "orientation": "unspecified",
+        "name": "com.example.todolistapplication.ClockGameAbility",
+        "icon": "$media:icon",
+        "description": "$string:clockgameability_description",
+        "label": "$string:entry_ClockGameAbility",
+        "type": "page",
+        "launchType": "standard"
       }
     ]
   }
