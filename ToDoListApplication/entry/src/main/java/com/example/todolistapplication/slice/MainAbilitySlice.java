@@ -1,6 +1,7 @@
 package com.example.todolistapplication.slice;
 
 import com.example.todolistapplication.ResourceTable;
+import com.example.todolistapplication.Utils.SecurityUtil;
 import com.example.todolistapplication.Utils.ToastUtils;
 import com.example.todolistapplication.Items.curUser;
 import ohos.aafwk.ability.AbilitySlice;
@@ -45,7 +46,7 @@ public class MainAbilitySlice extends AbilitySlice implements Component.ClickedL
 
 
         LoginButton.setClickedListener(this);
-
+        ForgetPasswordButton.setClickedListener(component -> present(new ForgetPasswordAbilitySlice(), new Intent()));
         RegisterButton.setClickedListener(component -> present(new RegisterAbilitySlice(), new Intent()));
         TestButton.setClickedListener(component -> present(new ToDoMainAbilitySlice(), new Intent()));
     }
@@ -85,11 +86,11 @@ public class MainAbilitySlice extends AbilitySlice implements Component.ClickedL
                     ToastUtils.show(this, "用户不存在", 2100);
                 }else{
                     resultSet.goToFirstRow();
-//                    String a = resultSet.getString(0);
-//                    ToastUtils.show(this, a, 2100);
+
+                    password = SecurityUtil.getSHA256StrJava(password);
                     if(password.equals(resultSet.getString(2))){
                         curUser.userId = resultSet.getInt(0);
-
+                        curUser.userName = resultSet.getString(1);
                         ToastUtils.show(this, "欢迎" + userName + "!", 2000);
                         Intent i = new Intent();
 

@@ -132,7 +132,7 @@ public class ToDoThingDetailAbilitySlice extends AbilitySlice implements Compone
                                 "成功删除" + thingTittle, 2000);
                         cd.destroy();
                         Intent i = new Intent();
-                        i.setParam("curIndex", 1);
+                        i.setParam("curIndex", 0);
                         Operation operation =  new Intent.OperationBuilder()
                                 .withDeviceId("")
                                 .withBundleName("com.example.todolistapplication")
@@ -184,7 +184,7 @@ public class ToDoThingDetailAbilitySlice extends AbilitySlice implements Compone
                     if(res > 0){
                         ToastUtils.show(ToDoThingDetailAbilitySlice.this, "保存成功", 2000);
                         Intent i = new Intent();
-                        i.setParam("curIndex", 1);
+                        i.setParam("curIndex", 0);
 
                         present(new ToDoMainAbilitySlice(), i);
                     }else{

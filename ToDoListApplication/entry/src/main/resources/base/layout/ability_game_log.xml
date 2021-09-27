@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DirectionalLayout
+    xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    ohos:height="match_parent"
+    ohos:width="match_parent"
+    ohos:background_element="$media:backG7">
+
+
+    <StackLayout
+        ohos:height="350vp"
+        ohos:width="match_parent"
+        ohos:top_margin="5vp"
+        ohos:left_margin="10vp"
+        ohos:layout_alignment="left"
+        >
+
+
+
+        <Image
+            ohos:height="match_parent"
+            ohos:width="match_parent"
+            ohos:image_src="$media:rankBoard2"
+            />
+
+        <ScrollView
+
+
+            ohos:height="240vp"
+            ohos:width="match_parent"
+            ohos:top_padding="55vp"
+            ohos:rebound_effect="true"
+
+            ohos:layout_alignment="horizontal_center">
+            <DirectionalLayout
+                ohos:height="match_content"
+                ohos:width="match_content"
+                ohos:orientation="vertical"
+                >
+                <Text
+                    ohos:id="$+id:GameLogText"
+
+                    ohos:left_margin="8vp"
+                    ohos:padding="2vp"
+                    ohos:height="match_content"
+                    ohos:width="match_content"
+                    ohos:text=""
+                    ohos:text_color="#ffffff"
+                    ohos:layout_alignment="horizontal_center"
+                    ohos:text_size="20fp"
+                    ohos:multiple_lines="true"
+
+
+                    />
+
+            </DirectionalLayout>
+
+
+
+        </ScrollView>
+
+
+
+    </StackLayout>
+
+
+
+
+
+
+    <Button
+        ohos:id="$+id:GameLogClockGame"
+        ohos:height="40vp"
+        ohos:width="200vp"
+        ohos:background_element="$media:LogButtonBackG2"
+        ohos:text="生死时速"
+        ohos:text_color="#ffffff"
+        ohos:text_size="20vp"
+        ohos:layout_alignment="left"
+        ohos:top_margin="15vp"
+        ohos:left_margin="30vp"
+
+        />
+    <Button
+        ohos:id="$+id:GameLogGuess"
+        ohos:height="40vp"
+        ohos:width="200vp"
+        ohos:background_element="$media:LogButtonBackG2"
+        ohos:text="拔河游戏"
+        ohos:text_color="#ffffff"
+        ohos:text_size="20vp"
+        ohos:layout_alignment="center"
+        ohos:top_margin="10vp"
+        />
+    <Button
+        ohos:id="$+id:GameLogMyRecord"
+        ohos:height="40vp"
+        ohos:width="200vp"
+        ohos:background_element="$media:LogButtonBackG2"
+        ohos:text="我的记录"
+        ohos:text_color="#ffffff"
+        ohos:text_size="20vp"
+        ohos:layout_alignment="right"
+        ohos:top_margin="10vp"
+        ohos:right_margin="30vp"
+        />
+    <Button
+        ohos:id="$+id:GameLogQuit"
+        ohos:height="40vp"
+        ohos:width="200vp"
+        ohos:background_element="$media:LogButtonBackG2"
+        ohos:text="退出"
+        ohos:text_color="#ffffff"
+        ohos:text_size="20vp"
+        ohos:layout_alignment="left"
+        ohos:top_margin="10vp"
+        ohos:left_margin="50vp"
+
+        />
+
+
+</DirectionalLayout>

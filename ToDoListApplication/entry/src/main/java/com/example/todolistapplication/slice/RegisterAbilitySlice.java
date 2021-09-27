@@ -1,8 +1,10 @@
 package com.example.todolistapplication.slice;
 
 import com.example.todolistapplication.ResourceTable;
+import com.example.todolistapplication.Utils.SecurityUtil;
 import com.example.todolistapplication.Utils.ToastUtils;
 import com.example.todolistapplication.Items.curUser;
+import com.example.todolistapplication.Utils.WarningUtil;
 import ohos.aafwk.ability.AbilitySlice;
 import ohos.aafwk.ability.DataAbilityHelper;
 import ohos.aafwk.ability.DataAbilityRemoteException;
@@ -124,45 +126,32 @@ public class RegisterAbilitySlice extends AbilitySlice implements Component.Clic
                 RegisterUserNameTextField.clearFocus();
                 return;
             }
-            if(password.length() < 6 || password.length() > 16){
+            if(!SecurityUtil.checkPasswordLength(password)){
 //                Text text = (Text) findComponentById(ResourceTable.Id_RegisterPasswordError);
                 RegisterPasswordError.setVisibility(Component.VISIBLE);
                 ToastUtils.show(this, "密码长度小于6或大于16", 2000);
                 // 显示TextField错误状态下的样式
-                ShapeElement errorElement = new ShapeElement(this, ResourceTable.Graphic_background_text_field_error);
-
-                RegisterPasswordTextField.setBackground(errorElement);
-
-                // TextField失去焦点
-                RegisterPasswordTextField.clearFocus();
+                WarningUtil.setWarning(this, RegisterPasswordTextField);
+//                ShapeElement errorElement = new ShapeElement(this, ResourceTable.Graphic_background_text_field_error);
+//
+//                RegisterPasswordTextField.setBackground(errorElement);
+//
+//                // TextField失去焦点
+//                RegisterPasswordTextField.clearFocus();
                 return;
             }else{
-                int[] cnt = new int[4]; // 符号的种类  至少两种
-                Arrays.fill(cnt, 0);
-                for(int i=0; i<password.length(); i++){
-                    char c = password.charAt(i);
-
-                    if(Character.isDigit(c)){
-                        cnt[0] = 1;
-                    }else if(Character.isLowerCase(c)){
-                        cnt[1] = 1;
-                    }else if(Character.isUpperCase(c)){
-                        cnt[2] = 1;
-                    }else{
-                        cnt[3] = 1;
-                    }
-                }
-                if(Arrays.stream(cnt).sum() < 2){
+                if(!SecurityUtil.checkPasswordComplexity(password)){
 //                    Text text = (Text) findComponentById(ResourceTable.Id_RegisterPasswordError);
                     RegisterPasswordError.setVisibility(Component.VISIBLE);
                     ToastUtils.show(this, "密码过于简单", 2000);
+                    WarningUtil.setWarning(this, RegisterPasswordTextField);
                     // 显示TextField错误状态下的样式
-                    ShapeElement errorElement = new ShapeElement(this, ResourceTable.Graphic_background_text_field_error);
-
-                    RegisterPasswordTextField.setBackground(errorElement);
-
-                    // TextField失去焦点
-                    RegisterPasswordTextField.clearFocus();
+//                    ShapeElement errorElement = new ShapeElement(this, ResourceTable.Graphic_background_text_field_error);
+//
+//                    RegisterPasswordTextField.setBackground(errorElement);
+//
+//                    // TextField失去焦点
+//                    RegisterPasswordTextField.clearFocus();
                     return;
                 }
             }
@@ -193,6 +182,7 @@ public class RegisterAbilitySlice extends AbilitySlice implements Component.Clic
 
                 // TextField失去焦点
                 RegisterUserPhoneTextField.clearFocus();
+                return;
             }else{
                 int i;
                 for(i=0; i<11; i++){
@@ -214,11 +204,55 @@ public class RegisterAbilitySlice extends AbilitySlice implements Component.Clic
                     return;
                 }
             }
+            /**
+             * 查重 userName, userPhone
+             */
+            String[] columns = {"userId"};
+            Uri uri = Uri.parse("dataability:///com.example.todolistapplication.UsersDataAbility/users");
+
+            DataAbilityPredicates dataAbilityPredicatesUserName = new DataAbilityPredicates()
+                    .equalTo("userName", username);
+            DataAbilityPredicates dataAbilityPredicatesUserPhone = new DataAbilityPredicates()
+                    .equalTo("userPhone", userPhone);
+            try {
+                ResultSet resultSetUserName = dataAbilityHelper.query(uri, columns, dataAbilityPredicatesUserName);
+                ResultSet resultSetUserPhone = dataAbilityHelper.query(uri, columns, dataAbilityPredicatesUserPhone);
+                if(resultSetUserName.getRowCount() > 0){
+                    RegisterUserNameError.setVisibility(Component.VISIBLE);
+                    ToastUtils.show(this, "用户名已存在!", 2000);
+                    // 显示TextField错误状态下的样式
+                    ShapeElement errorElement = new ShapeElement(this, ResourceTable.Graphic_background_text_field_error);
+
+                    RegisterUserNameTextField.setBackground(errorElement);
+
+                    // TextField失去焦点
+                    RegisterUserNameTextField.clearFocus();
+                    return;
+                }
+                if(resultSetUserPhone.getRowCount()>0){
+                    RegisterUserPhoneError.setVisibility(Component.VISIBLE);
+                    ToastUtils.show(this, "电话已被注册!", 2000);
+                    // 显示TextField错误状态下的样式
+                    ShapeElement errorElement = new ShapeElement(this, ResourceTable.Graphic_background_text_field_error);
+
+                    RegisterUserNameTextField.setBackground(errorElement);
+
+                    // TextField失去焦点
+                    RegisterUserNameTextField.clearFocus();
+                    return;
+                }
+
+
+            } catch (DataAbilityRemoteException e) {
+                e.printStackTrace();
+            }
 
             // 大概没问题  还没查重！
 
             ValuesBucket valuesBucket = new ValuesBucket();
             valuesBucket.putString("userName", username);
+//            System.out.println(SecurityUtil.getSHA256StrJava(password));
+            password = SecurityUtil.getSHA256StrJava(password);
             valuesBucket.putString("password", password);
 //            valuesBucket.putString("passwordAgain", passwordAgain);
             valuesBucket.putString("userPhone", userPhone);
@@ -233,8 +267,8 @@ public class RegisterAbilitySlice extends AbilitySlice implements Component.Clic
                 if(res == 1){
                     ToastUtils.show(this, username + "注册成功!", 2000);
 
-                    Uri uri = Uri.parse("dataability:///com.example.todolistapplication.UsersDataAbility/users");
-                    String[] columns = {"userId"};
+//                    Uri uri = Uri.parse("dataability:///com.example.todolistapplication.UsersDataAbility/users");
+//                    String[] columns = {"userId"};
 
                     DataAbilityPredicates dataAbilityPredicates = new DataAbilityPredicates()
                             .equalTo("userName", username);

@@ -79,6 +79,18 @@
     {
       "name": "guessgameability_HelloWorld",
       "value": "Hello World"
+    },
+    {
+      "name": "clockgamezendataability_description",
+      "value": "hap sample empty provider"
+    },
+    {
+      "name": "clockgamechallengedataability_description",
+      "value": "hap sample empty provider"
+    },
+    {
+      "name": "guessgamedataability_description",
+      "value": "hap sample empty provider"
     }
   ]
 }

@@ -52,7 +52,7 @@ public class ClockGameAbilitySlice extends AbilitySlice implements Component.Cli
         }
         else if(component == ClockGameQuit){
             Intent i = new Intent();
-            i.setParam("curIndex", 2);
+            i.setParam("curIndex", 1);
             Operation operation =  new Intent.OperationBuilder()
                     .withDeviceId("")
                     .withBundleName("com.example.todolistapplication")

@@ -3,17 +3,82 @@
     xmlns:ohos="http://schemas.huawei.com/res/ohos"
     ohos:height="match_parent"
     ohos:width="match_parent"
-    ohos:alignment="center"
-    ohos:orientation="vertical">
+    ohos:background_element="$media:GuessGameBackG"
+
+    >
 
     <Text
-        ohos:id="$+id:text_helloworld"
+
         ohos:height="match_content"
         ohos:width="match_content"
-        ohos:background_element="$graphic:background_ability_guess_game"
+        ohos:top_margin="40vp"
+
+        ohos:left_margin="55vp"
+        ohos:text="拔 河"
+        ohos:text_size="50vp"
+        />
+<!--    ohos:background_element="$graphic:background_ability_guess_game"-->
+    <Text
+
+        ohos:height="match_content"
+        ohos:width="match_content"
+        ohos:top_margin="10vp"
+        ohos:layout_alignment="right"
+        ohos:right_margin="55vp"
+        ohos:text="竞 赛"
+        ohos:text_size="50vp"
+        />
+
+    <Text
+        ohos:id="$+id:GuessGameTargetText"
+        ohos:height="match_content"
+        ohos:width="match_content"
+        ohos:top_margin="10vp"
         ohos:layout_alignment="horizontal_center"
-        ohos:text="$string:guessgameability_HelloWorld"
-        ohos:text_size="40vp"
+
+        ohos:text_alignment="horizontal_center"
+        ohos:text_color="#ffffff"
+        ohos:text="点击开始吧"
+        ohos:text_size="50vp"
+        />
+
+    <Slider
+        ohos:id="$+id:GuessGameSlider"
+        ohos:height="90vp"
+        ohos:width="300vp"
+        ohos:top_margin="40vp"
+        ohos:enabled="true"
+        ohos:margin="20vp"
+        ohos:layout_alignment="horizontal_center"
+        ohos:background_instruct_element="#dfa85b"
+        ohos:progress_color="#c15f31"
+        ohos:thumb_element="$media:SliderPoint"
+        ohos:progress_width="25vp"
+        />
+
+<!--    df,a8,5b-->
+<!--    c1,5f,31-->
+
+    <Button
+        ohos:id="$+id:GuessGamePlayButton"
+        ohos:height="120vp"
+        ohos:width="150vp"
+        ohos:text_color="#ffffff"
+        ohos:text_size="30fp"
+        ohos:margin="10vp"
+        ohos:text="开始游戏"
+        ohos:background_element="$media:GuessGameButton"
+        ohos:layout_alignment="horizontal_center"
+        />
+    <Button
+        ohos:id="$+id:GuessGameQuitButton"
+        ohos:height="120vp"
+        ohos:width="150vp"
+        ohos:text_color="#ffffff"
+        ohos:text_size="30fp"
+        ohos:text="退出"
+        ohos:background_element="$media:GuessGameButton"
+        ohos:layout_alignment="horizontal_center"
         />
 
 </DirectionalLayout>

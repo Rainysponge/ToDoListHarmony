@@ -105,6 +105,36 @@
         "label": "$string:entry_GuessGameAbility",
         "type": "page",
         "launchType": "standard"
+      },
+      {
+        "permissions": [
+          "com.example.todolistapplication.DataAbilityShellProvider.PROVIDER"
+        ],
+        "name": "com.example.todolistapplication.ClockGameZenDataAbility",
+        "icon": "$media:icon",
+        "description": "$string:clockgamezendataability_description",
+        "type": "data",
+        "uri": "dataability://com.example.todolistapplication.ClockGameZenDataAbility"
+      },
+      {
+        "permissions": [
+          "com.example.todolistapplication.DataAbilityShellProvider.PROVIDER"
+        ],
+        "name": "com.example.todolistapplication.ClockGameChallengeDataAbility",
+        "icon": "$media:icon",
+        "description": "$string:clockgamechallengedataability_description",
+        "type": "data",
+        "uri": "dataability://com.example.todolistapplication.ClockGameChallengeDataAbility"
+      },
+      {
+        "permissions": [
+          "com.example.todolistapplication.DataAbilityShellProvider.PROVIDER"
+        ],
+        "name": "com.example.todolistapplication.GuessGameDataAbility",
+        "icon": "$media:icon",
+        "description": "$string:guessgamedataability_description",
+        "type": "data",
+        "uri": "dataability://com.example.todolistapplication.GuessGameDataAbility"
       }
     ]
   }

@@ -1,13 +1,21 @@
 package com.example.todolistapplication.slice;
 
 import com.example.todolistapplication.ResourceTable;
+import com.example.todolistapplication.Items.curUser;
 import com.example.todolistapplication.Utils.DialogUtil;
+import com.example.todolistapplication.Utils.SecurityUtil;
 import com.example.todolistapplication.Utils.TimeUtil;
 import ohos.aafwk.ability.AbilitySlice;
+import ohos.aafwk.ability.DataAbilityHelper;
+import ohos.aafwk.ability.DataAbilityRemoteException;
 import ohos.aafwk.content.Intent;
 import ohos.aafwk.content.Operation;
 import ohos.agp.components.*;
 import ohos.agp.window.dialog.CommonDialog;
+import ohos.data.dataability.DataAbilityPredicates;
+import ohos.data.rdb.ValuesBucket;
+import ohos.data.resultset.ResultSet;
+import ohos.utils.net.Uri;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -26,10 +34,14 @@ public class ClockGameZenAbilitySlice extends AbilitySlice implements Component.
 
     long timeLimit = 15000;
 
+    private DataAbilityHelper dataAbilityHelper;
+
     @Override
     protected void onStart(Intent intent) {
         super.onStart(intent);
         super.setUIContent(ResourceTable.Layout_ability_clock_game_zen);
+
+        dataAbilityHelper = DataAbilityHelper.creator(this);
 
         clockGameZenRoundProgressBar = (RoundProgressBar)findComponentById(ResourceTable.Id_ClockGameZenRoundProgressBar);
         clockGameZenTickTimer = (TickTimer)findComponentById(ResourceTable.Id_ClockGameZenTickTimer);
@@ -90,6 +102,50 @@ public class ClockGameZenAbilitySlice extends AbilitySlice implements Component.
             clockGameZenStartButton.setClickable(false);
             clockGameZenReMainTimeText.setText(0 + "s");
             clockGameZenStartButton.setText("重来!");
+
+            if(curUser.userId != -1){
+                /**
+                 * 非游客用户更新数据
+                 */
+                String userName = curUser.userName;
+                Uri uriZen = Uri.parse("dataability:///com.example.todolistapplication.ClockGameZenDataAbility/clockGameZen");
+
+                DataAbilityPredicates dataAbilityPredicates = new DataAbilityPredicates()
+                        .equalTo("userName", userName);
+
+                String[] columns = {"score", "recordTime", "lastPlayTime"};
+                ValuesBucket valuesBucket = new ValuesBucket();
+                Date date = new Date();
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy年MM月dd日 hh:mm:ss");
+                valuesBucket.putString("lastPlayTime", dateFormat.format(date));
+                try {
+                    ResultSet resultSetZen = dataAbilityHelper.query(uriZen, columns, dataAbilityPredicates);
+                    if(resultSetZen.getRowCount()==0){
+                        // insert
+                        valuesBucket.putFloat("score", (float)(count*3.0 / 100.0));
+                        valuesBucket.putString("recordTime", dateFormat.format(date));
+                        valuesBucket.putString("userName", userName);
+                        dataAbilityHelper.insert(uriZen, valuesBucket);
+                    }else{
+                        // update
+                        resultSetZen.goToFirstRow();
+                        float record = resultSetZen.getFloat(0);
+
+                        if((float)(count*3.0 / 100.0) > record){
+                            // update
+                            valuesBucket.putFloat("score", (float)(count*3.0 / 100.0));
+                            valuesBucket.putString("recordTime", dateFormat.format(date));
+                        }
+                        dataAbilityHelper.update(uriZen, valuesBucket, dataAbilityPredicates);
+                    }
+
+
+                } catch (DataAbilityRemoteException e) {
+                    e.printStackTrace();
+                }
+            }
+
+
 
             String msg = String.format("完成了%.2f圈", (float)count*3.0 / 100.0);
             CommonDialog cd = new CommonDialog(this);

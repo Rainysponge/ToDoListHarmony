@@ -1,12 +1,20 @@
 package com.example.todolistapplication.slice;
 
+import com.example.todolistapplication.Items.curUser;
 import com.example.todolistapplication.ResourceTable;
 import ohos.aafwk.ability.AbilitySlice;
+import ohos.aafwk.ability.DataAbilityHelper;
+import ohos.aafwk.ability.DataAbilityRemoteException;
 import ohos.aafwk.content.Intent;
 import ohos.aafwk.content.Operation;
 import ohos.agp.components.*;
 import ohos.agp.window.dialog.CommonDialog;
+import ohos.data.dataability.DataAbilityPredicates;
+import ohos.data.rdb.ValuesBucket;
+import ohos.data.resultset.ResultSet;
+import ohos.utils.net.Uri;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class ClockGameChallengeSlice extends AbilitySlice implements Component.ClickedListener {
@@ -17,13 +25,14 @@ public class ClockGameChallengeSlice extends AbilitySlice implements Component.C
     int count = 0;
     long startTime = 0;
     int playNum = 0;
-
+    private DataAbilityHelper dataAbilityHelper;
 
     @Override
     protected void onStart(Intent intent) {
         super.onStart(intent);
         super.setUIContent(ResourceTable.Layout_ability_clock_game_challenge);
 
+        dataAbilityHelper = DataAbilityHelper.creator(this);
 
         ClockGameChallengeProgressBar = (ProgressBar)findComponentById(ResourceTable.Id_ClockGameChallengeProgressBar);
         ClockGameChallengeStartButton = (Button)findComponentById(ResourceTable.Id_ClockGameChallengeStartButton);
@@ -55,6 +64,50 @@ public class ClockGameChallengeSlice extends AbilitySlice implements Component.C
                 playNum = 2; // disable to click
                 ClockGameChallengeStartButton.setText("重来!");
                 long endTime = new Date().getTime();
+
+                if(curUser.userId != -1){
+                    /**
+                     * 非游客用户更新数据
+                     */
+                    String userName = curUser.userName;
+                    Uri uriZen = Uri.parse("dataability:///com.example.todolistapplication.ClockGameChallengeDataAbility" +
+                            "/clockGameChallenge");
+
+                    DataAbilityPredicates dataAbilityPredicates = new DataAbilityPredicates()
+                            .equalTo("userName", userName);
+
+                    String[] columns = {"score", "recordTime", "lastPlayTime"};
+                    ValuesBucket valuesBucket = new ValuesBucket();
+                    Date date = new Date();
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy年MM月dd日 hh:mm:ss");
+                    valuesBucket.putString("lastPlayTime", dateFormat.format(date));
+                    try {
+                        ResultSet resultSetZen = dataAbilityHelper.query(uriZen, columns, dataAbilityPredicates);
+                        if(resultSetZen.getRowCount()==0){
+                            // insert
+                            valuesBucket.putFloat("score", (float) ((endTime-startTime)/1000.0));
+                            valuesBucket.putString("recordTime", dateFormat.format(date));
+                            valuesBucket.putString("userName", userName);
+                            dataAbilityHelper.insert(uriZen, valuesBucket);
+                        }else{
+                            // update
+                            resultSetZen.goToFirstRow();
+                            float record = resultSetZen.getFloat(0);
+
+                            if((float)(endTime-startTime)/1000.0 < record){
+                                // update
+                                valuesBucket.putFloat("score", (float) ((endTime-startTime)/1000.0));
+                                valuesBucket.putString("recordTime", dateFormat.format(date));
+                            }
+                            dataAbilityHelper.update(uriZen, valuesBucket, dataAbilityPredicates);
+                        }
+
+
+                    } catch (DataAbilityRemoteException e) {
+                        e.printStackTrace();
+                    }
+                }
+
                 CommonDialog cd = new CommonDialog(this);
                 cd.setCornerRadius(15);
 

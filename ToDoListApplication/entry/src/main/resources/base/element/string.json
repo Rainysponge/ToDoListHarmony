@@ -79,6 +79,18 @@
     {
       "name": "entry_GuessGameAbility",
       "value": "entry_GuessGameAbility"
+    },
+    {
+      "name": "clockgamezendataability_description",
+      "value": "hap sample empty provider"
+    },
+    {
+      "name": "clockgamechallengedataability_description",
+      "value": "hap sample empty provider"
+    },
+    {
+      "name": "guessgamedataability_description",
+      "value": "hap sample empty provider"
     }
   ]
 }

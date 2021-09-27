@@ -93,7 +93,7 @@ public class ToToThingAddAbilitySlice extends AbilitySlice implements Component.
                     }else {
                         ToastUtils.show(this, "添加成功", 1500);
                         Intent i = new Intent();
-                        i.setParam("curIndex", 1);
+                        i.setParam("curIndex", 0);
                         present(new ToDoMainAbilitySlice(), i);
                     }
 

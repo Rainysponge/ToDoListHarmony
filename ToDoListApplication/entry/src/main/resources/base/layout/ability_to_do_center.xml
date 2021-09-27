@@ -20,7 +20,7 @@
         ohos:id="$+id:UserCenterMyGameLog"
         ohos:height="50vp"
         ohos:width="319vp"
-        ohos:text="我的游戏记录"
+        ohos:text="游戏记录"
         ohos:text_size="24fp"
         ohos:layout_alignment="horizontal_center"
         ohos:top_margin="60vp"

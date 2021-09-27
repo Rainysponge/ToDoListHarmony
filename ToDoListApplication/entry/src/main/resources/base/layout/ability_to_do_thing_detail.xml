@@ -78,7 +78,7 @@
             ohos:text="删除"
             ohos:text_color="#FEFEFE"
             ohos:text_alignment="center"
-            ohos:background_element="$graphic:capsule_button_element_quit"
+            ohos:background_element="$graphic:capsule_button_quit_fill"
 
             />
 
@@ -93,7 +93,7 @@
             ohos:text="保存修改"
             ohos:text_color="#FEFEFE"
 
-            ohos:background_element="$graphic:capsule_button_element"
+            ohos:background_element="$graphic:capsule_button_element_fill"
 
             />
 

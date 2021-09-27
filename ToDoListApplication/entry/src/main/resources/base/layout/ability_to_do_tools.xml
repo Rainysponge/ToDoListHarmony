@@ -81,7 +81,7 @@
                 ohos:width="match_content"
                 ohos:text_alignment="center"
                 ohos:layout_alignment="horizontal_center"
-                ohos:text="猜大小"
+                ohos:text="拔河游戏"
                 ohos:text_size="25fp"
                 ohos:margin="10vp"
 
@@ -90,17 +90,81 @@
 
         </DirectionalLayout>
 
+        <DirectionalLayout
+            ohos:height="match_parent"
+            ohos:width="170vp">
 
-        <Text
-            ohos:height="match_content"
-            ohos:width="match_content"
-            ohos:text_alignment="center"
+            <StackLayout
+                ohos:height="140vp"
+                ohos:width="140vp"
+                ohos:margin="5vp"
+                >
 
-            ohos:text="更多"
-            ohos:text_size="25fp"
-            ohos:margin="10vp"
-            ohos:background_element="#ffffff"
-            />
+
+                <Image
+                    ohos:height="match_parent"
+                    ohos:width="match_parent"
+                    ohos:image_src="$media:aboutUs"
+                    ohos:scale_mode="stretch"
+                    />
+                <Button
+                    ohos:id="$+id:AboutUsButton"
+                    ohos:height="match_parent"
+                    ohos:width="match_parent"/>
+
+
+            </StackLayout>
+            <Text
+                ohos:height="match_content"
+                ohos:width="match_content"
+                ohos:text_alignment="center"
+                ohos:layout_alignment="horizontal_center"
+                ohos:text="关于我们"
+                ohos:text_size="25fp"
+                ohos:margin="10vp"
+
+                />
+
+
+        </DirectionalLayout>
+
+        <DirectionalLayout
+            ohos:height="match_parent"
+            ohos:width="170vp">
+
+            <StackLayout
+                ohos:height="140vp"
+                ohos:width="140vp"
+                ohos:margin="5vp"
+                >
+
+
+                <Image
+                    ohos:height="match_parent"
+                    ohos:width="match_parent"
+                    ohos:image_src="$media:lookingForMore"
+                    ohos:scale_mode="stretch"
+                    />
+                <Button
+                    ohos:id="$+id:LookingForMoreButton"
+                    ohos:height="match_parent"
+                    ohos:width="match_parent"/>
+
+
+            </StackLayout>
+            <Text
+                ohos:height="match_content"
+                ohos:width="match_content"
+                ohos:text_alignment="center"
+                ohos:layout_alignment="horizontal_center"
+                ohos:text="期待更多"
+                ohos:text_size="25fp"
+                ohos:margin="10vp"
+
+                />
+
+
+        </DirectionalLayout>
 
 
 

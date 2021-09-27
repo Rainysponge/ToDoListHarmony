@@ -3,11 +3,8 @@ package com.example.todolistapplication.slice;
 import com.example.todolistapplication.Items.TestItem;
 import com.example.todolistapplication.Items.ToDoThingItem;
 import com.example.todolistapplication.ResourceTable;
-import com.example.todolistapplication.Utils.DialogUtil;
-import com.example.todolistapplication.Utils.TabPageSliderProvider;
+import com.example.todolistapplication.Utils.*;
 import com.example.todolistapplication.Items.curUser;
-import com.example.todolistapplication.Utils.TestItemProvider;
-import com.example.todolistapplication.Utils.ToDoThingItemProvider;
 import ohos.aafwk.ability.AbilitySlice;
 import ohos.aafwk.ability.DataAbilityHelper;
 import ohos.aafwk.ability.DataAbilityRemoteException;
@@ -15,6 +12,7 @@ import ohos.aafwk.content.Intent;
 import ohos.aafwk.content.Operation;
 import ohos.agp.components.*;
 import ohos.agp.window.dialog.CommonDialog;
+import ohos.agp.window.dialog.ToastDialog;
 import ohos.data.dataability.DataAbilityPredicates;
 import ohos.data.resultset.ResultSet;
 import ohos.utils.net.Uri;
@@ -54,7 +52,7 @@ public class ToDoMainAbilitySlice extends AbilitySlice implements TabList.TabSel
         System.out.println(curUser.userId);
 
         MainTabList = (TabList)findComponentById(ResourceTable.Id_MainTabList);
-        String[] tabTexts = {"首页", "记事本", "小游戏", "我的"};
+        String[] tabTexts = {"记事本", "小游戏", "我的"};
         MainTabList.setFixedMode(true);
         for(int i=0; i<tabTexts.length; i++){
             TabList.Tab tab = MainTabList.new Tab(this);
@@ -63,7 +61,7 @@ public class ToDoMainAbilitySlice extends AbilitySlice implements TabList.TabSel
         }
         // initial pageSlider
         List<Integer> layoutFileIds = new ArrayList<>();
-        layoutFileIds.add(ResourceTable.Layout_ability_to_do_index);
+//        layoutFileIds.add(ResourceTable.Layout_ability_to_do_index);
         layoutFileIds.add(ResourceTable.Layout_ability_to_do_list);
         layoutFileIds.add(ResourceTable.Layout_ability_to_do_tools);
         layoutFileIds.add(ResourceTable.Layout_ability_to_do_center);
@@ -115,8 +113,6 @@ public class ToDoMainAbilitySlice extends AbilitySlice implements TabList.TabSel
         // 设置pageSlider和餐单索引一致
         ToDoMainPageSlider.setCurrentPage(index);
         if(index == 0){
-            // 首页
-        }else if(index == 1){
 
 //                    StackLayout stackLayout = (StackLayout)LayoutScatter.getInstance().parse(ResourceTable.Layout_toast, null, false) ;
             DirectionalLayout directionalLayout = (DirectionalLayout) LayoutScatter.getInstance(this)
@@ -141,7 +137,10 @@ public class ToDoMainAbilitySlice extends AbilitySlice implements TabList.TabSel
             MainAddTodoThingButton.setClickedListener(new Component.ClickedListener() {
                 @Override
                 public void onClick(Component component) {
-
+                    if(curUser.userId == -1){
+                        ToastUtils.show(ToDoMainAbilitySlice.super.getContext(), "该功能不支持游客哦~", 3000);
+                        return;
+                    }
                     Intent i = new Intent();
 
                     Operation operation =  new Intent.OperationBuilder()
@@ -157,76 +156,49 @@ public class ToDoMainAbilitySlice extends AbilitySlice implements TabList.TabSel
             });
 
 
-        }else if(index == 2){
+        }else if(index == 1){
             // games and tools
 
             Button ClockGameButton = (Button)findComponentById(ResourceTable.Id_ClockGameButton);
             Button GuessGameButton = (Button)findComponentById(ResourceTable.Id_GuessGameButton);
+            Button AboutUsButton = (Button)findComponentById(ResourceTable.Id_AboutUsButton);
+            Button LookForMoreButton = (Button)findComponentById(ResourceTable.Id_LookingForMoreButton);
 
-            ClockGameButton.setClickedListener(new Component.ClickedListener() {
-                @Override
-                public void onClick(Component component) {
-                    Intent i = new Intent();
+            ClockGameButton.setClickedListener(component -> {
+                Intent i = new Intent();
 
-                    Operation operation =  new Intent.OperationBuilder()
-                            .withDeviceId("")
-                            .withBundleName("com.example.todolistapplication")
-                            .withAbilityName("com.example.todolistapplication.ClockGameAbility").build();
+                Operation operation =  new Intent.OperationBuilder()
+                        .withDeviceId("")
+                        .withBundleName("com.example.todolistapplication")
+                        .withAbilityName("com.example.todolistapplication.ClockGameAbility").build();
 
-                    i.setOperation(operation);
+                i.setOperation(operation);
 
-                    startAbility(i);
-                }
+                startAbility(i);
             });
 
-            GuessGameButton.setClickedListener(new Component.ClickedListener() {
-                @Override
-                public void onClick(Component component) {
-                    Intent i = new Intent();
+            GuessGameButton.setClickedListener(component -> {
+                Intent i = new Intent();
 
-                    Operation operation =  new Intent.OperationBuilder()
-                            .withDeviceId("")
-                            .withBundleName("com.example.todolistapplication")
-                            .withAbilityName("com.example.todolistapplication.GuessGameAbility").build();
+                Operation operation =  new Intent.OperationBuilder()
+                        .withDeviceId("")
+                        .withBundleName("com.example.todolistapplication")
+                        .withAbilityName("com.example.todolistapplication.GuessGameAbility").build();
 
-                    i.setOperation(operation);
+                i.setOperation(operation);
 
-                    startAbility(i);
-                }
+                startAbility(i);
             });
 
-
-        }else{
-            // user center
-
-            Button userCenterLogOut = (Button)findComponentById(ResourceTable.Id_UserCenterLogOut);
-            Text userName = (Text)findComponentById(ResourceTable.Id_UserCenterUserName);
-
-            userName.setText(curUser.userName);
-
-            userCenterLogOut.setClickedListener(new Component.ClickedListener() {
+            AboutUsButton.setClickedListener(new Component.ClickedListener() {
                 @Override
                 public void onClick(Component component) {
-//                    DialogUtil.show(ToDoMainAbilitySlice.this, userName + ",确定要退出吗?");
-
-//                    curUser.userName = "";
-//                    curUser.userId = -1;
-//                    Intent i = new Intent();
-//
-//                    Operation operation =  new Intent.OperationBuilder()
-//                            .withDeviceId("")
-//                            .withBundleName("com.example.todolistapplication")
-//                            .withAbilityName("com.example.todolistapplication.MainAbility").build();
-//
-//                    i.setOperation(operation);
-//
-//                    startAbility(i);
-                    CommonDialog cd = new CommonDialog(ToDoMainAbilitySlice.this);
+                    CommonDialog cd = new CommonDialog(ToDoMainAbilitySlice.super.getContext());
                     cd.setCornerRadius(15);
                     cd.setAutoClosable(true);
                     // load xml
                     DirectionalLayout dl = (DirectionalLayout) LayoutScatter
-                            .getInstance(ToDoMainAbilitySlice.this)
+                            .getInstance(ToDoMainAbilitySlice.super.getContext())
                             .parse(ResourceTable.Layout_messagedialog, null, false);
 
 
@@ -234,23 +206,14 @@ public class ToDoMainAbilitySlice extends AbilitySlice implements TabList.TabSel
                     Text text = (Text) dl.findComponentById(ResourceTable.Id_message);
                     Button submit = (Button) dl.findComponentById(ResourceTable.Id_submit);
                     Button cancel = (Button) dl.findComponentById(ResourceTable.Id_cancel);
-                    text.setText(curUser.userName + ",确认要退出吗?");
+                    String message = "成员:\n计183 胡展翊\t计181 王云鹏\n计181 徐一博\t 计算机 吴宇迪\n" +
+                            "github:https://github.com/Rainysponge/ToDoListHarmony.git\n请多指教";
+                    text.setText(message);
 
                     submit.setClickedListener(new Component.ClickedListener() {
                         @Override
                         public void onClick(Component component) {
-                            curUser.userName = "";
-                            curUser.userId = -1;
-                            Intent i = new Intent();
-
-                            Operation operation =  new Intent.OperationBuilder()
-                                    .withDeviceId("")
-                                    .withBundleName("com.example.todolistapplication")
-                                    .withAbilityName("com.example.todolistapplication.MainAbility").build();
-
-                            i.setOperation(operation);
-
-                            startAbility(i);
+                            cd.destroy();
                         }
                     });
 
@@ -260,11 +223,77 @@ public class ToDoMainAbilitySlice extends AbilitySlice implements TabList.TabSel
                             cd.destroy();
                         }
                     });
+
                     cd.setContentCustomComponent(dl);
                     cd.show();
-
-
                 }
+            });
+
+            LookForMoreButton.setClickedListener(new Component.ClickedListener() {
+                @Override
+                public void onClick(Component component) {
+                    ToastUtils.show(ToDoMainAbilitySlice.super.getContext(), "敬请期待!",2000);
+                }
+            });
+
+
+        }else{
+            // user center
+            Button UserCenterChangePassWord = (Button)findComponentById(ResourceTable.Id_UserCenterChangePassWord);
+            Button userCenterLogOut = (Button)findComponentById(ResourceTable.Id_UserCenterLogOut);
+
+            Text userName = (Text)findComponentById(ResourceTable.Id_UserCenterUserName);
+
+            Button UserCenterMyGameLog = (Button)findComponentById(ResourceTable.Id_UserCenterMyGameLog);
+            UserCenterMyGameLog.setClickedListener(component -> present(new GamaLogSlice(), new Intent()));
+
+            userName.setText(curUser.userName);
+
+            UserCenterChangePassWord.setClickedListener(component -> present(new ResetPasswordSlice(), new Intent()));
+            userCenterLogOut.setClickedListener(component -> {
+                CommonDialog cd = new CommonDialog(ToDoMainAbilitySlice.this);
+                cd.setCornerRadius(15);
+                cd.setAutoClosable(true);
+                // load xml
+                DirectionalLayout dl = (DirectionalLayout) LayoutScatter
+                        .getInstance(ToDoMainAbilitySlice.this)
+                        .parse(ResourceTable.Layout_messagedialog, null, false);
+
+
+                // 获取Dl中的东西
+                Text text = (Text) dl.findComponentById(ResourceTable.Id_message);
+                Button submit = (Button) dl.findComponentById(ResourceTable.Id_submit);
+                Button cancel = (Button) dl.findComponentById(ResourceTable.Id_cancel);
+                text.setText(curUser.userName + ",确认要退出吗?");
+
+                submit.setClickedListener(new Component.ClickedListener() {
+                    @Override
+                    public void onClick(Component component) {
+                        curUser.userName = "";
+                        curUser.userId = -1;
+                        Intent i = new Intent();
+
+                        Operation operation =  new Intent.OperationBuilder()
+                                .withDeviceId("")
+                                .withBundleName("com.example.todolistapplication")
+                                .withAbilityName("com.example.todolistapplication.MainAbility").build();
+
+                        i.setOperation(operation);
+
+                        startAbility(i);
+                    }
+                });
+
+                cancel.setClickedListener(new Component.ClickedListener() {
+                    @Override
+                    public void onClick(Component component) {
+                        cd.destroy();
+                    }
+                });
+                cd.setContentCustomComponent(dl);
+                cd.show();
+
+
             });
 
 
