@@ -4,16 +4,27 @@
 
 ide下载地址 https://developer.harmonyos.com/
 
-更改时需要了解的文件夹
+## 更改时需要了解的文件夹
 
 \entry\src\main
+
 	\java\com\example\todolistapplication
+ 
 		\Item ............................可能用到的数据类
+  
 		\slice .............................页面类
+  
 		\Utils .............................工具类
+  
 		\*DataAbility.java.......提供数据库服务的类(表结构也在里面
+  
 		\*Ability.java................初始化Ability用的，不要管 
+  
 	\resources\base
+ 
 		\graphic.........................UI组件背景所有xml
+  
 		\layout...........................页面xml
+  
 		\media............................所用素材	
+  
