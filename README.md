@@ -5,7 +5,7 @@
 ide下载地址 https://developer.harmonyos.com/
 
 ## 更改时需要了解的文件夹
-
+```sh
 \entry\src\main
 
 	\java\com\example\todolistapplication
@@ -28,3 +28,5 @@ ide下载地址 https://developer.harmonyos.com/
   
 		\media............................所用素材	
   
+```
+
